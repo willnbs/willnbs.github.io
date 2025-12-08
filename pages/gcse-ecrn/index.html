@@ -42,6 +42,24 @@
             letter-spacing: -0.5px;
         }
 
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #4ade80 0%, #3b82f6 100%);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .logo-divider {
+            color: #e5e5e5;
+            font-weight: 300;
+        }
+
         .nav-links {
             display: flex;
             gap: 2.5rem;
@@ -211,6 +229,83 @@
             color: #fff;
         }
 
+
+        .tiles-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-bottom: 3rem;
+        }
+
+        .tile {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: visible;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tile:nth-child(1) { background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%); }
+        .tile:nth-child(2) { background: #fff; }
+        .tile:nth-child(3) { background: #1a1a1a; }
+        .tile:nth-child(4) { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+        .tile:nth-child(5) { background: #fff; }
+        .tile:nth-child(6) { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .tile:nth-child(7) { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+        .tile:nth-child(8) { background: #f5f5f5; }
+
+        .tile:hover {
+            transform: scale(1.08) translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        .tile:nth-child(1):hover { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .tile:nth-child(2):hover { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+        .tile:nth-child(3):hover { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+        .tile:nth-child(4):hover { background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); }
+        .tile:nth-child(5):hover { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+        .tile:nth-child(6):hover { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+        .tile:nth-child(7):hover { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .tile:nth-child(8):hover { background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%); }
+
+        .tile-content {
+            text-align: center;
+            padding: 2rem;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .tile:nth-child(2) .tile-content,
+        .tile:nth-child(5) .tile-content,
+        .tile:nth-child(8) .tile-content {
+            color: #1a1a1a;
+        }
+
+        .tile:nth-child(2):hover .tile-content,
+        .tile:nth-child(5):hover .tile-content,
+        .tile:nth-child(8):hover .tile-content {
+            color: #fff;
+        }
+
+        .tile-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .tile-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+
+        
         .features {
             max-width: 1400px;
             margin: 5rem auto;
@@ -281,6 +376,12 @@
             color: #1a1a1a;
         }
 
+         @media (max-width: 1024px) {
+            .tiles-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -303,7 +404,12 @@
 <body>
     <header>
         <nav>
-            <div class="logo">SERN</div>
+            <div class="logo-image"><object
+                  type="image/png"
+                  data="/images/ecr-logo-final.png"
+            ></object></div>
+            <span class="logo-divider">|</span>
+            <div class="logo">GCSE ECR Network</div>
             <ul class="nav-links">
                 <li><a href="#research">Research</a></li>
                 <li><a href="#news">News</a></li>
@@ -359,6 +465,51 @@
         </div>
     </section>
 
+
+<div class="tiles-section">
+        <div class="tile">
+            <div class="tile-content">
+                <div class="tile-title">Policy</div>
+            </div>
+        </div>
+        <div class="tile">
+            <div class="tile-content">
+                <div class="tile-title">Engineering</div>
+            </div>
+        </div>
+        <div class="tile">
+            <div class="tile-content">
+                <div class="tile-title">Energy storage</div>
+            </div>
+        </div>
+        <div class="tile">
+            <div class="tile-content">
+                <div class="tile-title">Smart Grid</div>
+            </div>
+        </div>
+        <div class="tile">
+            <div class="tile-content">
+                <div class="tile-title">AI</div>
+            </div>
+        </div>
+        <div class="tile">
+            <div class="tile-content">
+                <div class="tile-title">Geothermal</div>
+            </div>
+        </div>
+        <div class="tile">
+            <div class="tile-content">
+                <div class="tile-title">Research</div>
+            </div>
+        </div>
+        <div class="tile">
+            <div class="tile-content">
+                <div class="tile-title">Impact</div>
+            </div>
+        </div>
+    </div>
+
+    
     <section class="features">
         <div class="feature">
             <div class="feature-icon">🔬</div>
@@ -395,7 +546,7 @@
                     <li><a href="#">Chemistry</a></li>
                     <li><a href="#">Policy</a></li>
                     <li><a href="#">Economics</a></li>
-                    <li><a href="#">Environmental</a></li>
+                    <li><a href="#">Environment</a></li>
                 </ul>
             </div>
             <div class="footer-section">
