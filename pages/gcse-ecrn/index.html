@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Energy Research Network</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 500;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #333;
+        }
+
+        .news-section {
+            background: #fff;
+            padding: 4rem 0;
+            margin: 3rem 0;
+        }
+
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .carousel-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .news-card {
+            min-width: 400px;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 300px;
+            background: #e5e5e5;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #4ade80 0%, #3b82f6 100%);
+            opacity: 0.7;
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-title {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .news-excerpt {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .carousel-nav {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-btn {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #e5e5e5;
+            background: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .carousel-btn:hover {
+            background: #1a1a1a;
+            border-color: #1a1a1a;
+            color: #fff;
+        }
+
+        .features {
+            max-width: 1400px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature {
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .feature p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background: #fff;
+            border-top: 1px solid #e5e5e5;
+            padding: 3rem 0;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .news-card {
+                min-width: 320px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SERN</div>
+            <ul class="nav-links">
+                <li><a href="#research">Research</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#members">Members</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Advancing the Future of Sustainable Energy</h1>
+        <p>A network of early career researchers collaborating to accelerate the transition to sustainable energy solutions. </p>
+        <a href="#" class="cta-button">Join the Network</a>
+    </section>
+
+    <section class="news-section" id="news">
+        <div class="section-header">
+            <h2>Latest Research & News</h2>
+            <p style="color: #666;">Stay up to date with the GCSE ECRN</p>
+        </div>
+        <div class="carousel-container">
+            <div class="carousel" id="newsCarousel">
+                <div class="news-card">
+                    <div class="news-image"></div>
+                    <div class="news-date">December 5, 2025</div>
+                    <h3 class="news-title">Underground thermal energy storage in local energy systems </h3>
+                    <p class="news-excerpt">Research aimed at exploring the role that thermal energy storage can play in sector coupling and demand side flexibility. </p>
+                </div>
+                <div class="news-card">
+                    <div class="news-image"></div>
+                    <div class="news-date">December 1, 2025</div>
+                    <h3 class="news-title">Community energy projects </h3>
+                    <p class="news-excerpt">Using key performance indicators to design energy systems that are environmental sustainable while addressing fuel poverty concerns. </p>
+                </div>
+                <div class="news-card">
+                    <div class="news-image"></div>
+                    <div class="news-date">November 28, 2025</div>
+                    <h3 class="news-title">AI optimising biorefineries </h3>
+                    <p class="news-excerpt"> Biodiesel production is made more efficient through machine learning models for feedstock and processing control. </p>
+                </div>
+                <div class="news-card">
+                    <div class="news-image"></div>
+                    <div class="news-date">November 25, 2025</div>
+                    <h3 class="news-title">Energy vibrations make rail travel more sustainable </h3>
+                    <p class="news-excerpt">Novel digital sensor designs are finding new sources of energy from the motion of trains. </p>
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button class="carousel-btn" onclick="scrollCarousel(-1)">←</button>
+                <button class="carousel-btn" onclick="scrollCarousel(1)">→</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <div class="feature-icon">🔬</div>
+            <h3>Collaborative Network</h3>
+            <p>Connect with early career researchers across the University working on sustainable energy solutions.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">📊</div>
+            <h3>Knowledge-sharing</h3>
+            <p>Access the latest research findings and modeling tools developed by researchers in the network. </p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🌍</div>
+            <h3>Research Impact</h3>
+            <p>Join initiatives that are actively shaping policy and discussions on the future of energy.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About SERN</h4>
+                <ul>
+                    <li><a href="#">Mission & Vision</a></li>
+                    <li><a href="#">Leadership</a></li>
+                    <li><a href="#">Partner Institutions</a></li>
+                    <li><a href="#">Annual Reports</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Research Areas</h4>
+                <ul>
+                    <li><a href="#">Engineering</a></li>
+                    <li><a href="#">Chemistry</a></li>
+                    <li><a href="#">Policy</a></li>
+                    <li><a href="#">Economics</a></li>
+                    <li><a href="#">Environmental</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Publications</a></li>
+                    <li><a href="#">Events</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Social Media</a></li>
+                    <li><a href="#">Join Network</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollCarousel(direction) {
+            const carousel = document.getElementById('newsCarousel');
+            const scrollAmount = 520;
+            carousel.scrollLeft += direction * scrollAmount;
+        }
+
+        // Auto-scroll carousel
+        let autoScroll = setInterval(() => {
+            const carousel = document.getElementById('newsCarousel');
+            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+            
+            if (carousel.scrollLeft >= maxScroll - 10) {
+                carousel.scrollLeft = 0;
+            } else {
+                carousel.scrollLeft += 520;
+            }
+        }, 5000);
+
+        // Pause auto-scroll on hover
+        const carousel = document.getElementById('newsCarousel');
+        carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
+        carousel.addEventListener('mouseleave', () => {
+            autoScroll = setInterval(() => {
+                const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+                if (carousel.scrollLeft >= maxScroll - 10) {
+                    carousel.scrollLeft = 0;
+                } else {
+                    carousel.scrollLeft += 420;
+                }
+            }, 5000);
+        });
+    </script>
+      <footer>
+      © Early Career Research Network &ndash; 2025
+  </footer>
+</body>
+</html>
