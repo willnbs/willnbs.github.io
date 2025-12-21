@@ -83,12 +83,57 @@
             color: #0070f3;
         }
 
-        .hero {
-            margin-top: 80px;
-            padding: 6rem 2rem 4rem;
-            text-align: center;
-            background: linear-gradient(to bottom, #fafafa 0%, #fff 50%);
+       .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
         }
+
+        .hero {
+            margin-bottom: 3rem;
+            border: 2px solid #333;
+            padding: 2rem;
+            background: #fff;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '/**';
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            color: #999;
+        }
+
+        .hero::after {
+            content: '**/';
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            color: #999;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin: 1rem 0;
+            color: #333;
+        }
+
+        .hero h1::before {
+            content: ' ';
+            color: #666;
+        }
+
+        .hero p {
+            color: #555;
+            margin-top: 1rem;
+        }
+
+        .hero p::before {
+            content: '// ';
+            color: #999;
+        }
+
 
         h1 {
             font-size: 4rem;
@@ -583,7 +628,13 @@
         </div>
     </nav>
     
+<div class="container">
+            <div class="hero">
+                <h1>Publications</h1>
+              <p>Research outputs from our network members. </p>
+            </div>
 
+    
 <div class="panels-grid">
             <div class="panel" data-line="Nov-25" onclick="togglePanel(this)">
                 <div class="panel-header">Research paper: Applied Thermal Engineering</div>
@@ -711,6 +762,20 @@
         }
 
         setInterval(nextSlide, 5000);
+
+        function togglePanel(panel) {
+    const wasActive = panel.classList.contains('active');
+    
+    // Close all panels
+    document.querySelectorAll('.panel').forEach(p => {
+        p.classList.remove('active');
+    });
+    
+    // If this panel wasn't active, open it
+    if (!wasActive) {
+        panel.classList.add('active');
+    }
+}
     </script>
 </body>
 </html>
