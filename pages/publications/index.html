@@ -446,6 +446,7 @@
             border-color: #000;
             box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
             transform: translate(-2px, -2px);
+            background: linear-gradient(135deg, #0070f3, #0052cc);            
         }
 
         .panel::before {
@@ -463,6 +464,10 @@
             margin-bottom: 0.5rem;
         }
 
+       .panel-header:hover{
+           color: #fff;
+       }
+
         .panel-header::before {
             content: ' ';
             color: #333;
@@ -479,6 +484,11 @@
             font-size: 1.3rem;
         }
 
+       .panel h3:hover{
+            color: #fff;
+       }
+           
+
         .panel h3::before {
             content: '  ';
             color: #666;
@@ -494,6 +504,10 @@
             margin-left: 2rem;
             font-size: 0.9rem;
         }
+
+       .panel-preview:hover{
+            color: #fff;
+       }
 
         .panel-preview::before {
             content: '    network member "';
@@ -523,6 +537,9 @@
             color: #333;
         }
 
+       .panel-details p:hover{
+            color: #fff;
+       }
         .panel-details p::before {
             content: '    // ';
             color: #999;
