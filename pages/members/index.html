@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png" href="/images/ecr_network_logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GCSE Early Career Researchers Network</title>
    <style>
@@ -83,12 +84,58 @@
             color: #0070f3;
         }
 
-        .hero {
-            margin-top: 80px;
-            padding: 6rem 2rem 4rem;
-            text-align: center;
-            background: linear-gradient(to bottom, #fafafa 0%, #fff 50%);
+       .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+           margin-top: 80px;
         }
+
+        .hero {
+            margin-bottom: 3rem;
+            border: 2px solid #333;
+            padding: 2rem;
+            background: #fff;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '/**';
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            color: #999;
+        }
+
+        .hero::after {
+            content: '**/';
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            color: #999;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin: 1rem 0;
+            color: #333;
+        }
+
+        .hero h1::before {
+            content: ' ';
+            color: #666;
+        }
+
+        .hero p {
+            color: #555;
+            margin-top: 1rem;
+        }
+
+        .hero p::before {
+            content: '// ';
+            color: #999;
+        }
+
 
         h1 {
             font-size: 4rem;
@@ -399,6 +446,7 @@
             border-color: #000;
             box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
             transform: translate(-2px, -2px);
+            background: linear-gradient(135deg, #cfdee9, #c3d6e4);            
         }
 
         .panel::before {
@@ -416,13 +464,15 @@
             margin-bottom: 0.5rem;
         }
 
+       
+
         .panel-header::before {
             content: ' ';
             color: #333;
         }
 
         .panel-header::after {
-            content: ' {';
+            content: ' ';
             color: #999;
         }
 
@@ -432,13 +482,16 @@
             font-size: 1.3rem;
         }
 
+    
+           
+
         .panel h3::before {
             content: '  ';
             color: #666;
         }
 
         .panel h3::after {
-            content: '()';
+            content: ' ';
             color: #999;
         }
 
@@ -448,8 +501,9 @@
             font-size: 0.9rem;
         }
 
+
         .panel-preview::before {
-            content: '    return "';
+            content: '    network member "';
             color: #999;
         }
 
@@ -468,7 +522,7 @@
         }
 
         .panel.active .panel-details {
-            max-height: 800px;
+            max-height: 1200px;
         }
 
         .panel-details p {
@@ -509,7 +563,7 @@
         }
 
         .panel.active .expand-btn::before {
-            content: '  } // ';
+            content: ' // ';
             color: #999;
         }
      
@@ -521,6 +575,10 @@
 
         @media (max-width: 768px) {
             h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h1 {
                 font-size: 2.5rem;
             }
             
@@ -559,10 +617,6 @@
                 flex-direction: column;
                 text-align: center;
             }
-
-          .panels-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -571,7 +625,7 @@
 
      <nav>
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="/pages/gcse-ecrn/index.html" class="logo">
                 <div class="logo-img">
                     <img src="/images/ecr_network_logo.png" alt="ECR Logo">
                 </div>
@@ -580,40 +634,41 @@
             <ul>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#news">News</a></li>
-                <li><a href="#members">Members</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/pages/members/index.html">Members</a></li>
+                <li><a href="/pages/publications/index.html">Publications</a></li>
+                <li><a href="/index.html">Contact</a></li>
             </ul>
         </div>
     </nav>
     
+<div class="container">
+            <div class="hero">
+                <h1>Members</h1>
+              <p>Find the people behind the research. </p>
+            </div>
 
-<div class="panels-grid">
-            <div class="panel" data-line="Nov-25" onclick="togglePanel(this)">
+ <div class="panels-grid">
+            <div class="panel" data-line="Committee" onclick="togglePanel(this)">
                 <div class="panel-header">Engineering</div>
-                <h3> Bert </h3>
-                <p class="panel-preview">Research area: Energy systems</p>
+                <h3>Name</h3>
+                <p class="panel-preview">3rd year PhD</p>
                 <div class="panel-details">
-                    <p>Bio:</p>
-                    <p> 1st-year PhD student </p>
+                    <p>Bio: 3rd-Year PhD student</p>
+                    <p> Contact: Email address </p>
                 </div>
-                <span class="expand-btn">click_to_expand()</span>
+                <span class="expand-btn">read the bio</span>
             </div>
 
-            <div class="panel" data-line="Oct-25" onclick="togglePanel(this)">
-                <div class="panel-header">Public policy</div>
-                <h3>Ernie</h3>
-                <p class="panel-preview">Research area: Geothermal</p>
+            <div class="panel" data-line="Member" onclick="togglePanel(this)">
+                <div class="panel-header">Engineering</div>
+                <h3>Name</h3>
+                <p class="panel-preview">3rd year PhD</p>
                 <div class="panel-details">
-                    <p>Bio:</p>
-                    <p> 3rd-year PhD student. </p>
+                    <p>Bio: 3rd-Year PhD student</p>
+                    <p> Contact: Email address </p>
                 </div>
-                <span class="expand-btn">click_to_expand()</span>
+                <span class="expand-btn">read the bio</span>
             </div>
-        </div>
-    </div>
-
-
   
     <footer>
         <div class="footer-content">
@@ -680,23 +735,22 @@
             currentIndex = (currentIndex + 1) % slides.length;
             goToSlide(currentIndex);
         }
-          setInterval(nextSlide, 5000);
-      
-      function togglePanel(panel) {
+
+        setInterval(nextSlide, 5000);
+
+        function togglePanel(panel) {
     const wasActive = panel.classList.contains('active');
     
-            // Close all panels
-            document.querySelectorAll('.panel').forEach(p => {
-                p.classList.remove('active');
-            });
-            
-            // If this panel wasn't active, open it
-            if (!wasActive) {
-                panel.classList.add('active');
-            }
-        }
-
-        
+    // Close all panels
+    document.querySelectorAll('.panel').forEach(p => {
+        p.classList.remove('active');
+    });
+    
+    // If this panel wasn't active, open it
+    if (!wasActive) {
+        panel.classList.add('active');
+    }
+}
     </script>
 </body>
 </html>
