@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCSE Early Career Researchers Network</title>
+   <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #fff;
+            color: #000;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-img {
+            width: 150px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: #000;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #0070f3;
+        }
+
+       .hero {
+            margin-bottom: 3rem;
+            border: 2px solid #333;
+            padding: 2rem;
+            background: #fff;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '/**';
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            color: #999;
+        }
+
+        .hero::after {
+            content: '**/';
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            color: #999;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin: 1rem 0;
+            color: #333;
+        }
+
+        .hero h1::before {
+            content: ' ';
+            color: #666;
+        }
+
+        .hero p {
+            color: #555;
+            margin-top: 1rem;
+        }
+
+        .hero p::before {
+            content: '// ';
+            color: #999;
+        }
+
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #000, #666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #000;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: #000;
+            border: 1px solid #e5e5e5;
+        }
+
+        .btn-secondary:hover {
+            border-color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .carousel-slide h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #0070f3;
+        }
+
+        .carousel-slide p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        .carousel-slide .date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .carousel-slide .btn {
+            margin-top: 1.5rem;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #d5d5d5;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dot.active {
+            background: #0070f3;
+        }
+
+        .blocks-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            width: 100%;
+            margin: 0;
+        }
+
+        .block {
+            aspect-ratio: 1;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(0, 112, 243, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .block:hover {
+            background: linear-gradient(135deg, #0070f3, #0052cc);
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 20px 60px rgba(0, 112, 243, 0.3);
+            border-color: #0070f3;
+        }
+
+        .block:hover::before {
+            opacity: 1;
+        }
+
+        .block-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: transform 0.4s;
+        }
+
+        .block:hover .block-icon {
+            transform: scale(1.2);
+        }
+
+        .block h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            transition: transform 0.4s;
+            color: #000;
+        }
+
+        .block:hover h3 {
+            color: #fff;
+        }
+
+        .block p {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+            transition: color 0.4s;
+        }
+
+        .block:hover p {
+            color: #fff;
+        }
+
+        footer {
+            background: #fafafa;
+            border-top: 1px solid #e5e5e5;
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .footer-section p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #0070f3;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e5e5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: #666;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #0070f3;
+        }
+
+
+      .panels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .panel {
+            background: #fff;
+            border: 2px solid #333;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .panel:hover {
+            border-color: #000;
+            box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+            transform: translate(-2px, -2px);
+        }
+
+        .panel::before {
+            content: attr(data-line);
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            color: #999;
+            font-size: 0.8rem;
+        }
+
+        .panel-header {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .panel-header::before {
+            content: ' ';
+            color: #333;
+        }
+
+        .panel-header::after {
+            content: ' {';
+            color: #999;
+        }
+
+        .panel h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .panel h3::before {
+            content: '  ';
+            color: #666;
+        }
+
+        .panel h3::after {
+            content: '()';
+            color: #999;
+        }
+
+        .panel-preview {
+            color: #555;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .panel-preview::before {
+            content: '    return "';
+            color: #999;
+        }
+
+        .panel-preview::after {
+            content: '";';
+            color: #999;
+        }
+
+        .panel-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            margin-left: 2rem;
+            margin-top: 1rem;
+            color: #555;
+        }
+
+        .panel.active .panel-details {
+            max-height: 800px;
+        }
+
+        .panel-details p {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .panel-details p::before {
+            content: '    // ';
+            color: #999;
+        }
+
+        .panel-details ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .panel-details li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .panel-details li::before {
+            content: '    • ';
+            color: #666;
+        }
+
+        .expand-btn {
+            display: block;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .panel:not(.active) .expand-btn::before {
+            content: '  } // ';
+            color: #999;
+        }
+
+        .panel.active .expand-btn::before {
+            content: '  } // ';
+            color: #999;
+        }
+     
+        @media (max-width: 1024px) {
+            .blocks-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .blocks-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 200px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+
+     <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-img">
+                    <img src="/images/ecr_network_logo.png" alt="ECR Logo">
+                </div>
+                <span>GCSE Early Career Researcher Network</span>
+            </a>
+            <ul>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="/pages/members/index.html">Members</a></li>
+                <li><a href="/pages/publications/index.html">Publications</a></li>
+                <li><a href="/index.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+            <div class="hero">
+                <h1>Upcoming events </h1>
+              <p> Check out our upcoming events.  </p>
+            </div>
+    
+
+<div class="panels-grid">
+            <div class="panel" data-line="16-Feb-25" onclick="togglePanel(this)">
+                <div class="panel-header">Movie Night: An informal event of energy discussions </div>
+                <h3> Movie title </h3>
+                <p class="panel-preview">Location: XX</p>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary">Sign up</a>
+       `          </div>
+           </div>
+  
+</div>
+
+
+
+  
+<div class="container">
+            <div class="hero">
+                <h1>Past events</h1>
+              <p> Find out what the network has been up to.  </p>
+</div>
+
+<div class="panels-grid">
+            <div class="panel" data-line="10-March-25" onclick="togglePanel(this)">
+                <div class="panel-header">On track for Net Zero? Perspectives on UK's Evolving Energy Policy Landscape</div>
+                <h3> Joint online roundtable with external connections </h3>
+                <p class="panel-preview">Location: Online</p>
+
+              <div class="panel-details">
+                    <p>Abstract:</p>
+                    <p>
+                      This roundtable was a collaboration between early career research networks, addressing how the UK's energy
+                      policy landscape is evolving to meet net-zero targets. With the introduction of initiatives such as the Clean
+                      Power 2030 Action Plan 2024, and the establishment of Great British Energy, it is essential to understand the key 
+                      priorities for energy sector transformation and clearly identify the key stakeholders, whose collaboration is 
+                      crucial to driving the transition.
+                          </p>
+                      </div>
+        <span class="expand-btn">Find out more()</span>
+      </div>
+  </div>
+  
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About ResearchNet</h4>
+                <p>The Early Career Researcher Network is a platform connecting researchers, fostering collaboration, and accelerating scientific discovery across all disciplines. Our mission is to break down barriers and enable research that addresses sustainable energy challenges.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="#active-projects">Active Projects</a></li>
+                    <li><a href="#facilities">Research Facilities</a></li>
+                    <li><a href="#members">Member Directory</a></li>
+                    <li><a href="/pages/events/index.html">Events & Conferences</a></li>
+                    <li><a href="#forums">Discussion Forums</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/pages/publications/index.html">Publications</a></li>
+                    <li><a href="#datasets">Open Data</a></li>
+                    <li><a href="#tools">Research Tools</a></li>
+                    <li><a href="#training">Training Materials</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 GCSE ECR Network.</p>
+            <div class="social-links">
+                <a href="#twitter" aria-label="Twitter">𝕏</a>
+                <a href="#linkedin" aria-label="LinkedIn">in</a>
+                <a href="#github" aria-label="GitHub">⚙</a>
+                <a href="#email" aria-label="Email">✉</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const track = document.getElementById('carouselTrack');
+        const dotsContainer = document.getElementById('carouselDots');
+        const slides = document.querySelectorAll('.carousel-slide');
+        let currentIndex = 0;
+
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function goToSlide(index) {
+            currentIndex = index;
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            goToSlide(currentIndex);
+        }
+
+        setInterval(nextSlide, 5000);
+    </script>
+</body>
+</html>
