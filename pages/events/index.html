@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png" href="/images/ecr_network_logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GCSE Early Career Researchers Network</title>
    <style>
@@ -83,7 +84,14 @@
             color: #0070f3;
         }
 
-       .hero {
+       .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+           margin-top: 80px;
+        }
+
+        .hero {
             margin-bottom: 3rem;
             border: 2px solid #333;
             padding: 2rem;
@@ -438,6 +446,7 @@
             border-color: #000;
             box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
             transform: translate(-2px, -2px);
+            background: linear-gradient(135deg, #cfdee9, #c3d6e4);            
         }
 
         .panel::before {
@@ -455,13 +464,15 @@
             margin-bottom: 0.5rem;
         }
 
+       
+
         .panel-header::before {
             content: ' ';
             color: #333;
         }
 
         .panel-header::after {
-            content: ' {';
+            content: ' ';
             color: #999;
         }
 
@@ -471,13 +482,16 @@
             font-size: 1.3rem;
         }
 
+    
+           
+
         .panel h3::before {
             content: '  ';
             color: #666;
         }
 
         .panel h3::after {
-            content: '()';
+            content: ' ';
             color: #999;
         }
 
@@ -487,8 +501,9 @@
             font-size: 0.9rem;
         }
 
+
         .panel-preview::before {
-            content: '    return "';
+            content: '    network member "';
             color: #999;
         }
 
@@ -507,7 +522,7 @@
         }
 
         .panel.active .panel-details {
-            max-height: 800px;
+            max-height: 1200px;
         }
 
         .panel-details p {
@@ -548,7 +563,7 @@
         }
 
         .panel.active .expand-btn::before {
-            content: '  } // ';
+            content: ' // ';
             color: #999;
         }
      
@@ -560,6 +575,10 @@
 
         @media (max-width: 768px) {
             h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h1 {
                 font-size: 2.5rem;
             }
             
@@ -606,7 +625,7 @@
 
      <nav>
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="/pages/gcse-ecrn/index.html" class="logo">
                 <div class="logo-img">
                     <img src="/images/ecr_network_logo.png" alt="ECR Logo">
                 </div>
