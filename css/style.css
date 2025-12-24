@@ -107,11 +107,55 @@ code {
             color: #0070f3;
         }
 
+    .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+           margin-top: 80px;
+        }
+
         .hero {
             margin-top: 80px;
             padding: 6rem 2rem 4rem;
             text-align: center;
             background: linear-gradient(to bottom, #fafafa 0%, #fff 50%);
+        }
+
+      .hero::before {
+            content: '/**';
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            color: #999;
+        }
+
+        .hero::after {
+            content: '**/';
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            color: #999;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin: 1rem 0;
+            color: #333;
+        }
+
+        .hero h1::before {
+            content: ' ';
+            color: #666;
+        }
+
+        .hero p {
+            color: #555;
+            margin-top: 1rem;
+        }
+
+        .hero p::before {
+            content: '// ';
+            color: #999;
         }
 
         h1 {
@@ -401,7 +445,150 @@ code {
         .social-links a:hover {
             color: #0070f3;
         }
-        
+
+
+       .panels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .panel {
+            background: #fff;
+            border: 2px solid #333;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .panel:hover {
+            border-color: #000;
+            box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+            transform: translate(-2px, -2px);
+            background: linear-gradient(135deg, #cfdee9, #c3d6e4);            
+        }
+
+        .panel::before {
+            content: attr(data-line);
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            color: #999;
+            font-size: 0.8rem;
+        }
+
+        .panel-header {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+       
+
+        .panel-header::before {
+            content: ' ';
+            color: #333;
+        }
+
+        .panel-header::after {
+            content: ' ';
+            color: #999;
+        }
+
+        .panel h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+    
+           
+
+        .panel h3::before {
+            content: '  ';
+            color: #666;
+        }
+
+        .panel h3::after {
+            content: ' ';
+            color: #999;
+        }
+
+        .panel-preview {
+            color: #555;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+        }
+
+
+        .panel-preview::before {
+            content: '    network member "';
+            color: #999;
+        }
+
+        .panel-preview::after {
+            content: '";';
+            color: #999;
+        }
+
+        .panel-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            margin-left: 2rem;
+            margin-top: 1rem;
+            color: #555;
+        }
+
+        .panel.active .panel-details {
+            max-height: 1200px;
+        }
+
+        .panel-details p {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .panel-details p::before {
+            content: '    // ';
+            color: #999;
+        }
+
+        .panel-details ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .panel-details li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .panel-details li::before {
+            content: '    • ';
+            color: #666;
+        }
+
+      .expand-btn {
+            display: block;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .panel:not(.active) .expand-btn::before {
+            content: '  } // ';
+            color: #999;
+        }
+
+        .panel.active .expand-btn::before {
+            content: ' // ';
+            color: #999;
+        }
+
+
         .dropdown {
             position: relative;
             display: inline-block;
@@ -445,6 +632,10 @@ code {
 
         @media (max-width: 768px) {
             h1 {
+                font-size: 2.5rem;
+            }
+
+          .hero h1 {
                 font-size: 2.5rem;
             }
             
