@@ -588,6 +588,28 @@ code {
             color: #999;
         }
 
+      .panel-content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+      }
+      
+      .panel-text {
+          flex: 1;
+      }
+      
+      .panel-image {
+          flex-shrink: 0;
+          width: 200px; /* Adjust as needed */
+      }
+      
+      .panel-image img {
+          width: 100%;
+          height: auto;
+          border-radius: 8px; /* Optional: rounds the corners */
+          object-fit: cover;
+      }
+
 
         .dropdown {
             position: relative;
