@@ -127,25 +127,30 @@
     let expandedDiv = null;
     let itemsPerRow = 0;
 
+    
     function calculateItemsPerRow() {
-      const gridStyle = window.getComputedStyle(grid);
-      const gridCols = gridStyle.gridTemplateColumns.split(' ').length;
-      return gridCols;
+      const gridItems = Array.from(grid.querySelectorAll('.grid-item'));
+      if (gridItems.length === 0) return 0;
+      
+      const firstItemTop = gridItems[0].getBoundingClientRect().top;
+      let count = 0;
+      
+      for (let item of gridItems) {
+        if (item.getBoundingClientRect().top === firstItemTop) {
+          count++;
+        } else {
+          break;
+        }
+      }
+      
+      return count;
     }
 
-    function renderGrid() {
-      grid.innerHTML = '';
+    function setupClickHandlers() {
+      const items = grid.querySelectorAll('.grid-item');
       
       items.forEach((item, idx) => {
-        const div = document.createElement('div');
-        div.className = 'grid-item';
-        div.innerHTML = `
-          <img src="${item.img}" alt="${item.title}">
-          <div class="grid-item-title">${item.title}</div>
-        `;
-        
-        div.addEventListener('click', () => toggleExpand(item, idx));
-        grid.appendChild(div);
+        item.addEventListener('click', () => toggleExpand(item, idx));
       });
     }
 
