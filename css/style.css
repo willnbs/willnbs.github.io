@@ -509,6 +509,20 @@ code {
       margin-bottom: 15px;
     }
 
+ .close-btn {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .close-btn:hover {
+      background: #0056b3;
+    }
 
        .panels-grid {
             display: grid;
