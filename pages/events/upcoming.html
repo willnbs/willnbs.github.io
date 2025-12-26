@@ -40,29 +40,6 @@
               <p> Check out our upcoming events.  </p>
             </div>
 
-    
-    
-
-<div class="panels-grid">
-    <div class="panel" data-line="16-Feb-26" onclick="togglePanel(this)">
-        <div class="panel-content">
-            <div class="panel-text">
-                <div class="panel-header">Movie Night: An informal event of energy discussions</div>
-                <h3>Movie title</h3>
-                <p class="panel-details"> We will be hosting a movie night focussed on sustainable energy. </p>
-            </div>
-            <div class="panel-image">
-                <img src="/images/Energy-Nexus-Roundtable.png" alt="Movie Night">
-                <div class="cta-buttons">
-                    <a href="#" class="btn btn-primary">Sign up</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-  
-
-  
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -100,7 +77,105 @@
         </div>
     </footer>
 
-    <script>
+   <script>
+   
+        const items = [
+      { 
+        id: 1, 
+        title: 'Movie Night: An informal event of energy discussions', 
+        img: '/images/all-energy-poster.png', 
+        desc: 'We will be hosting a movie night focussed on sustainable energy.' 
+      }
+    ];
+
+    const grid = document.getElementById('grid');
+    let activeItem = null;
+    let expandedDiv = null;
+    let itemsPerRow = 0;
+
+    function calculateItemsPerRow() {
+      const gridStyle = window.getComputedStyle(grid);
+      const gridCols = gridStyle.gridTemplateColumns.split(' ').length;
+      return gridCols;
+    }
+
+    function renderGrid() {
+      grid.innerHTML = '';
+      
+      items.forEach((item, idx) => {
+        const div = document.createElement('div');
+        div.className = 'grid-item';
+        div.innerHTML = `
+          <img src="${item.img}" alt="${item.title}">
+          <div class="grid-item-title">${item.title}</div>
+        `;
+        
+        div.addEventListener('click', () => toggleExpand(item, idx));
+        grid.appendChild(div);
+      });
+    }
+
+    function toggleExpand(item, idx) {
+      itemsPerRow = calculateItemsPerRow();
+      
+      if (activeItem === item.id) {
+        closeExpanded();
+        return;
+      }
+
+      if (expandedDiv) {
+        expandedDiv.remove();
+        expandedDiv = null;
+      }
+
+      activeItem = item.id;
+      
+      const rowEndIdx = Math.floor(idx / itemsPerRow) * itemsPerRow + itemsPerRow - 1;
+      const insertAfterIdx = Math.min(rowEndIdx, items.length - 1);
+      
+      expandedDiv = document.createElement('div');
+      expandedDiv.className = 'expanded-content';
+      expandedDiv.innerHTML = `
+        <h2>${item.title}</h2>
+        <p>${item.desc}</p>
+        <button class="close-btn">Close</button>
+      `;
+      
+      const targetElement = grid.children[insertAfterIdx];
+      targetElement.after(expandedDiv);
+      
+      setTimeout(() => {
+        expandedDiv.classList.add('active');
+      }, 10);
+      
+      expandedDiv.querySelector('.close-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeExpanded();
+      });
+    }
+
+    function closeExpanded() {
+      if (expandedDiv) {
+        expandedDiv.classList.remove('active');
+        setTimeout(() => {
+          expandedDiv.remove();
+          expandedDiv = null;
+          activeItem = null;
+        }, 300);
+      }
+    }
+
+    window.addEventListener('resize', () => {
+      if (activeItem) {
+        const item = items.find(i => i.id === activeItem);
+        const idx = items.findIndex(i => i.id === activeItem);
+        closeExpanded();
+        setTimeout(() => toggleExpand(item, idx), 350);
+      }
+    });
+
+    renderGrid();
+        
         const track = document.getElementById('carouselTrack');
         const dotsContainer = document.getElementById('carouselDots');
         const slides = document.querySelectorAll('.carousel-slide');
@@ -144,7 +219,6 @@
         panel.classList.add('active');
     }
 }
-        
     </script>
 </body>
 </html>
