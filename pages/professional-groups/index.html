@@ -564,6 +564,50 @@
                 </div>
                 <span class="expand-btn">click_to_expand()</span>
             </div>
-      
+      <script>
+        const track = document.getElementById('carouselTrack');
+        const dotsContainer = document.getElementById('carouselDots');
+        const slides = document.querySelectorAll('.carousel-slide');
+        let currentIndex = 0;
+
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function goToSlide(index) {
+            currentIndex = index;
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            goToSlide(currentIndex);
+        }
+
+        setInterval(nextSlide, 5000);
+
+        function togglePanel(panel) {
+    const wasActive = panel.classList.contains('active');
+    
+    // Close all panels
+    document.querySelectorAll('.panel').forEach(p => {
+        p.classList.remove('active');
+    });
+    
+    // If this panel wasn't active, open it
+    if (!wasActive) {
+        panel.classList.add('active');
+    }
+}
+    </script>
   </body>
 </html>
