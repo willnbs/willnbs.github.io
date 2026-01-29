@@ -1,2 +1,2 @@
 # willnibbs.github.io
-Personal website READ ME
+Personal website
