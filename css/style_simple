@@ -390,3 +390,46 @@
                 font-size: 0.7rem;
             }
         }
+
+  p { line-height: 1.1em; }
+  
+  a { 
+    color: #646464; 
+    text-decoration: underline; 
+    text-decoration-color: #BCBCDC; 
+    text-decoration-thickness: 2px; 
+  }
+  
+  a:hover { 
+    border: 4px solid #BCBCDC; 
+  }
+  
+  .rounded-box {
+    background-color: #FFF3DB;
+    border: 0px solid #2A80C9;
+    border-radius: 12px;
+    padding: 6px 10px;
+    max-width: 100%;
+    margin: 2rem auto;
+    font-family: system-ui, sans-serif;
+    line-height: 1.4em;
+  }
+  
+  .research-bio {
+    display: grid;
+    grid-template-columns: 110px 1fr; /* adjust column width here */
+    gap: 0px;
+    margin-bottom: 12px;
+  }
+  
+  .research-bio .label {
+    font-weight: 600;
+    font-size: 0.95em;
+    color: #111;
+    white-space: nowrap;
+  }
+  
+  .research-bio .text {
+    font-size: 1em;
+    color: #111;
+  }
