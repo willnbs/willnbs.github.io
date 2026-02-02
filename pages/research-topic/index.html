@@ -23,7 +23,7 @@
 <meta property="og:image:type" content="" />
 <meta property="og:image:width" content="" />
 <meta property="og:image:height" content="" />
-<meta property="og:url" content="https://willnibbs.github.io/" />
+<meta property="og:url" content="https://willnbs.github.io/" />
 <meta property="og:locale" content="en-CA" />
 <meta property="article:published_time" content="0001-01-01
 " /> <meta property="article:modified_time" content="0001-01-01
@@ -32,66 +32,141 @@
   rel="stylesheet"
   href="https://unpkg.com/tachyons@4.11.1/css/tachyons.min.css"
 />
-<link rel="stylesheet" href="https://willnibbs.github.io/css/style.css" />
+<link rel="stylesheet" href="https://willnbs.github.io/css/style_simple.css" />
   
 <title> William Nibbs Research Website </title>
-  <link rel="canonical" href="https://willnibbs.github.io/" />
+  <link rel="canonical" href="https://willnbs.github.io/" />
 
-
-  <style>
-  .full-width-header {
-    width: 200%;
-    position: relative;
-    left: -50%;          
-    background: white;
-    padding: 0;
-    margin: 0;
-  }
-    .p1-font {
-      max-width: 1000px;       /* Limit width to 1000px */
-    line-height: 1.6;       /* Space between lines */
-    font-size: 12px;        /* Font size */
-    word-wrap: break-word; 
-  font-family: "Lucida Console", "Courier New", monospace;
-}
-
-  .header-image {
-    display: block;
-    margin: 0 auto;      
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-  }
-
-  @media (min-width: 800px) {
-    .header-image {
-      width: 100%;
-    }
-  }
-    body {
-    margin: 0 auto;         /* Center horizontally */
-    }
-</style>
 </head>
 
   
-<body
-    lang="en-CA"
-    class="p1-font"
-  >
- <h1 style="font-size:60px"><strong>Research Bio</strong></h1>
-  <p> My research interests revolve around the use of groundwater in energy, minerals and mining. This interest includes the following:</p>
-    <ul>
-    <li>
-    <p> Integrating energetic uses for groundwater and ground-source (geothermal) energy in energy system models such as ongoing work with <a href="https://oemof.org/"> oemof (open energy modelling framework).</a></p> 
-    </li>
-      <li>
-      <p> Sustainable groundwater resource management in the mining and energy sectors through the development of <a href="https://unece.org/sustainable-energy/united-nations-framework-classification-resources-unfc"></a>international reporting standards</a></p> 
-    </li>
-      <li>
-      <p> Mapping of system dynamics of social-ecological systems with direct application to <a href="/pages/research-topic/ses">groundwater and energy systems. </a> </p>
-  </li>
-    </ul>
+<body>
+ <nav class="navbar">
+        <div class="logo"><a href="/index.html">william_nibbs</a> <span class="terminal-cursor">█</span></div>
+        <ul class="nav-links">
+            <li><a href="/index.html">home</a></li>
+            <li><a href="/pages/research-topic/index.html">research</a></li>
+            <li> projects </li>
+            <li><a href="/pages/professional-groups/">committees</a></li>
+            <li><a href="#contact">contact</a></li>
+        </ul>
+    </nav>
+
+  <div class="container">
+            <div class="hero">
+                <h1>--Research Groups and Committees</h1>
+              <p> Through my research I have become involved in a number of working groups, task forces and committees. These include the following:</p>
+            </div>
+
+
+    <div class="panels-grid">
+            <div class="panel" data-line="1" onclick="togglePanel(this)">
+                <div class="panel-header">Research Article</div>
+                <h3><a href="https://www.sciencedirect.com/science/article/pii/S1359431125041225"> Repurposing Oil and Gas Wells for Geothermal Energy</a></h3>
+                <p class="panel-preview">A comprehensive study of deep borehole heat exchangers in the UK. </p>
+                <div class="panel-details">
+                    <p>Details:</p>
+                    <ul>
+                        <li>Numerical modelling in OpenGeoSys</li>
+                        <li>Thermal gradient estimates with kriging</li>
+                        <li>Multi-criteria screening analysis</li>
+                        <li>Greenhouse heat demand modelling</li>
+                    </ul>
+                </div>
+                <span class="expand-btn">click_to_expand()</span>
+            </div>
+
+            <div class="panel" data-line="2" onclick="togglePanel(this)">
+                <div class="panel-header">Working Document</div>
+                <h3><a href="https://unece.org/sites/default/files/2025-09/DRAFT%20Milestone%20Update%20from%20EGRM%20GRWG%20to%2034th%20session%20of%20CSE.pdft">Draft milestone update from EGRM GRWG to 34th Session of Committee on Sustainable Energy.</a></h3>
+                <p class="panel-preview"> Project reporting for sustainable groundwater management</p>
+                <div class="panel-details">
+                    <p>Details:</p>
+                    <ul>
+                        <li>Gap analysis explaining the need for the updates</li>
+                        <li>Next steps and workplan</li>
+                    </ul>
+                </div>
+                <span class="expand-btn">click_to_expand()</span>
+            </div>
+
+          <div class="panel" data-line="3" onclick="togglePanel(this)">
+                <div class="panel-header">Conference Paper</div>
+                <h3><a href="/#"> Investigating aquifer thermal energy storage for demand-side flexibility in Great Britain</a></h3>
+                <p class="panel-preview"> Energy system modelling</p>
+                <div class="panel-details">
+                    <p>Details:</p>
+                    <ul>
+                        <li>Updated work with price signals for control</li>
+                        <li> Methodology and initial results </li>
+                    </ul>
+                </div>
+                <span class="expand-btn">click_to_expand()</span>
+            </div>
+
+          <div class="panel" data-line="4" onclick="togglePanel(this)">
+                <div class="panel-header">Review Article</div>
+                <h3><a href="https://link.springer.com/article/10.1186/s40517-024-00297-3">  A comprehensive review of deep borehole heat exchangers (DBHEs)</a></h3>
+                <p class="panel-preview">Subsurface modelling studies and applications. </p>
+                <div class="panel-details">
+                    <p>Details:</p>
+                    <ul>
+                        <li>Modelling approaches for deep borehole heat exchangers</li>
+                        <li>Main section on borehole thermal energy storage</li>
+                    </ul>
+                </div>
+                <span class="expand-btn">click_to_expand()</span>
+            </div>
+
+    </div>
+
+      
+
+      <script>
+        const track = document.getElementById('carouselTrack');
+        const dotsContainer = document.getElementById('carouselDots');
+        const slides = document.querySelectorAll('.carousel-slide');
+        let currentIndex = 0;
+
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function goToSlide(index) {
+            currentIndex = index;
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            goToSlide(currentIndex);
+        }
+
+        setInterval(nextSlide, 5000);
+
+        function togglePanel(panel) {
+    const wasActive = panel.classList.contains('active');
+    
+    // Close all panels
+    document.querySelectorAll('.panel').forEach(p => {
+        p.classList.remove('active');
+    });
+    
+    // If this panel wasn't active, open it
+    if (!wasActive) {
+        panel.classList.add('active');
+    }
+}
+    </script>
 
   </body>
 </html>
